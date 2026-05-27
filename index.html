@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Arnoldo Apolonio Fernández Ramírez</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- Variables globales y Reset --- */
+        :root {
+            --primary-color: #5c1d24; 
+            --secondary-color: #2c3e50;
+            --accent-color: #16a085;
+            --text-color: #333333;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-color);
+            line-height: 1.6;
+            background-color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        li { list-style: none; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+
+        /* --- Títulos --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            margin-bottom: 40px;
+            position: relative;
+            color: var(--secondary-color);
+        }
+        .section-title::after {
+            content: ''; position: absolute; bottom: -10px; left: 50%;
+            transform: translateX(-50%); width: 60px; height: 4px;
+            background-color: var(--primary-color); border-radius: 2px;
+        }
+
+        /* --- Botones --- */
+        .btn { display: inline-block; padding: 12px 28px; border-radius: 25px; font-weight: 600; transition: var(--transition); cursor: pointer; }
+        .btn-primary { background-color: var(--primary-color); color: var(--white); }
+        .btn-primary:hover { background-color: #401318; transform: translateY(-2px); }
+        .btn-secondary { background-color: transparent; color: var(--white); border: 2px solid var(--white); }
+        .btn-secondary:hover { background-color: var(--white); color: var(--primary-color); transform: translateY(-2px); }
+
+        /* --- Barra de Navegación --- */
+        .navbar { background-color: var(--white); box-shadow: var(--shadow); position: fixed; top: 0; width: 100%; z-index: 1000; }
+        .nav-container { display: flex; justify-content: space-between; align-items: center; height: 70px; max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        .nav-logo { font-size: 1.4rem; font-weight: 700; color: var(--primary-color); }
+        .nav-menu { display: flex; gap: 20px; }
+        .nav-link { font-weight: 500; transition: var(--transition); padding: 8px 12px; }
+        .nav-link:hover { color: var(--primary-color); }
+        .nav-toggle { display: none; background: none; border: none; font-size: 1.5rem; color: var(--primary-color); cursor: pointer; }
+
+        /* --- Hero Section --- */
+        .hero-section { background: linear-gradient(135deg, var(--primary-color) 0%, #2c1013 100%); color: var(--white); padding: 140px 20px 80px 20px; }
+        .hero-container { display: flex; max-width: 1100px; margin: 0 auto; align-items: center; gap: 50px; }
+        .hero-content { flex: 1; }
+        .hero-subtitle { display: inline-block; background-color: rgba(255, 255, 255, 0.15); padding: 5px 15px; border-radius: 20px; font-size: 0.9rem; margin-bottom: 15px; }
+        .hero-content h1 { font-size: 2.8rem; line-height: 1.2; margin-bottom: 20px; }
+        .hero-text { font-size: 1.1rem; margin-bottom: 25px; opacity: 0.9; }
+        .hero-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
+        .hero-tags span { background-color: rgba(255, 255, 255, 0.08); padding: 6px 14px; border-radius: 15px; font-size: 0.85rem; }
+        .hero-buttons { display: flex; gap: 15px; }
+        .hero-image-placeholder { width: 220px; height: 220px; background-color: rgba(255, 255, 255, 0.05); border: 2px dashed rgba(255, 255, 255, 0.2); border-radius: 50%; display: flex; justify-content: center; align-items: center; font-size: 5rem; color: rgba(255, 255, 255, 0.2); }
+
+        /* --- Estadísticas --- */
+        .stats-section { padding: 40px 20px; background-color: var(--light-bg); }
+        .stats-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; max-width: 1200px; margin: 0 auto; }
+        .stat-card { background-color: var(--white); padding: 30px; border-radius: 10px; text-align: center; box-shadow: var(--shadow); transition: var(--transition); }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-card i { font-size: 2.5rem; color: var(--primary-color); margin-bottom: 15px; }
+        .stat-card h3 { font-size: 2rem; margin-bottom: 5px; color: var(--secondary-color); }
+
+        /* --- Trayectoria --- */
+        .timeline-section { padding: 80px 20px; }
+        .timeline { position: relative; max-width: 800px; margin: 0 auto; padding-left: 30px; border-left: 3px solid #e1e8ed; }
+        .timeline-item { position: relative; margin-bottom: 40px; }
+        .timeline-dot { position: absolute; left: -38px; top: 5px; width: 14px; height: 14px; border-radius: 50%; background-color: var(--primary-color); border: 3px solid var(--white); box-shadow: 0 0 0 3px rgba(92, 29, 36, 0.2); }
+        .timeline-date { font-weight: bold; color: var(--primary-color); font-size: 0.9rem; margin-bottom: 5px; }
+        .timeline-content h3 { font-size: 1.3rem; color: var(--secondary-color); margin-bottom: 10px; }
+
+        /* --- Habilidades --- */
+        .skills-section { padding: 80px 20px; background-color: var(--light-bg); }
+        .skills-container { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; max-width: 1000px; margin: 0 auto; }
+        .skills-column h3 { margin-bottom: 20px; color: var(--secondary-color); border-bottom: 2px solid #ddd; padding-bottom: 5px; }
+        .skill-bar-wrapper { margin-bottom: 20px; }
+        .skill-info { display: flex; justify-content: space-between; margin-bottom: 5px; font-weight: 500; }
+        .skill-bar { width: 100%; height: 8px; background-color: #e0e0e0; border-radius: 4px; overflow: hidden; }
+        .skill-progress { height: 100%; background-color: var(--primary-color); border-radius: 4px; }
+
+        /* --- Investigación --- */
+        .research-section { padding: 80px 20px; }
+        .research-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 1200px; margin: 0 auto 40px auto; }
+        .research-card { background-color: var(--white); border-left: 4px solid var(--primary-color); padding: 25px; border-radius: 0 8px 8px 0; box-shadow: var(--shadow); display: flex; flex-direction: column; }
+        .research-card h3 { font-size: 1.15rem; color: var(--secondary-color); margin: 15px 0 10px 0; line-height: 1.4; }
+        .card-badge { align-self: flex-start; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: bold; }
+        .badge-accepted { background-color: #e3f2fd; color: #0d47a1; }
+        .badge-published { background-color: #e8f5e9; color: #1b5e20; }
+        .journal { font-size: 0.9rem; color: #555; margin-bottom: 10px; }
+        .authors { font-size: 0.85rem; color: #777; margin-top: auto; }
+        .center-btn { text-align: center; }
+
+        /* --- Contacto --- */
+        .contact-section { padding: 80px 20px; background-color: var(--secondary-color); color: var(--white); }
+        .contact-container { max-width: 600px; margin: 0 auto; }
+        .contact-info-block h3 { margin-bottom: 20px; color: var(--white); }
+        .contact-info-block p { margin-bottom: 15px; display: flex; align-items: center; gap: 15px; }
+        .contact-info-block i { font-size: 1.2rem; color: #16a085; width: 25px; }
+        .footer { background-color: #1a252f; color: #bdc3c7; text-align: center; padding: 30px 20px; font-size: 0.9rem; }
+
+        /* --- Responsividad --- */
+        @media (max-width: 968px) {
+            .hero-container { flex-direction: column; text-align: center; gap: 30px; }
+            .hero-tags, .hero-buttons { justify-content: center; }
+            .hero-image-placeholder { width: 160px; height: 160px; font-size: 3.5rem; }
+            .skills-container { grid-template-columns: 1fr; }
+        }
+        @media (max-width: 768px) {
+            .nav-toggle { display: block; }
+            .nav-menu { position: absolute; top: 70px; left: -100%; flex-direction: column; background-color: var(--white); width: 100%; text-align: center; box-shadow: 0 10px 15px rgba(0,0,0,0.1); transition: var(--transition); padding: 20px 0; }
+            .nav-menu.active { left: 0; }
+            .hero-content h1 { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo">Dr. Arnoldo Fernández</a>
+            <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#perfil" class="nav-link">Perfil</a></li>
+                <li><a href="#trayectoria" class="nav-link">Trayectoria</a></li>
+                <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                <li><a href="#investigacion" class="nav-link">Investigación</a></li>
+                <li><a href="#contacto" class="nav-link">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero-section" id="perfil">
+        <div class="hero-container">
+            <div class="hero-content">
+                <span class="hero-subtitle">Profesor Titular "C" Tiempo Completo</span>
+                <h1>Dr. Arnoldo Apolonio Fernández Ramírez</h1>
+                <p class="hero-text">
+                    Especialista en Mecánica de Sólidos, Robótica y Sistemas Ciberfísicos. Responsable del cuerpo académico <strong>ITNLE-CA-7</strong>.
+                </p>
+                <div class="hero-tags">
+                    <span><i class="fas fa-robot"></i> Robótica</span>
+                    <span><i class="fas fa-microchip"></i> Sistemas Ciberfísicos</span>
+                    <span><i class="fas fa-wind"></i> Energía Renovable</span>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#investigacion" class="btn btn-primary">Ver Publicaciones</a>
+                </div>
+            </div>
+            <div class="hero-image-placeholder">
+                <i class="fas fa-user-gear"></i>
+            </div>
+        </div>
+    </header>
+
+    <section class="stats-section">
+        <div class="stats-container">
+            <div class="stat-card"><i class="fas fa-file-alt"></i><h3>31+</h3><p>Artículos Científicos</p></div>
+            <div class="stat-card"><i class="fas fa-book"></i><h3>3</h3><p>Libros Publicados</p></div>
+            <div class="stat-card"><i class="fas fa-graduation-cap"></i><h3>25+</h3><p>Alumnos Titulados</p></div>
+        </div>
+    </section>
+
+    <section class="timeline-section" id="trayectoria">
+        <h2 class="section-title">Formación Académica</h2>
+        <div class="container">
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Université de Poitiers, Francia</div>
+                    <div class="timeline-content"><h3>Doctorado en Mecánica de Sólidos</h3></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Instituto Tecnológico de la Laguna</div>
+                    <div class="timeline-content"><h3>Maestría en Ciencias en Ingeniería Eléctrica</h3></div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-dot"></div>
+                    <div class="timeline-date">Instituto Tecnológico de la Laguna</div>
+                    <div class="timeline-content"><h3>Ingeniería Industrial Mecánica</h3></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="skills-section" id="habilidades">
+        <h2 class="section-title">Competencias</h2>
+        <div class="skills-container">
+            <div class="skills-column">
+                <h3>Técnicas</h3>
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info"><span>Matemáticas Avanzadas</span><span>100%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 100%;"></div></div>
+                </div>
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info"><span>Sistemas Ciberfísicos y Robótica</span><span>100%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 100%;"></div></div>
+                </div>
+            </div>
+            <div class="skills-column">
+                <h3>Transversales</h3>
+                <div class="skill-bar-wrapper">
+                    <div class="skill-info"><span>Ética Profesional</span><span>100%</span></div>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 100%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="research-section" id="investigacion">
+        <h2 class="section-title">Producción Científica Reciente</h2>
+        <div class="research-grid">
+            <div class="research-card">
+                <span class="card-badge badge-accepted">Aceptado (2026)</span>
+                <h3>An Interdisciplinary Optimization Framework for Intelligent Robotic Workstation Base Placement</h3>
+                <p class="journal">Applied Sciences (ISSN 2076-3417)</p>
+            </div>
+            <div class="research-card">
+                <span class="card-badge badge-published">Publicado (2025)</span>
+                <h3>Diseño y Evaluación de una Turbina Eólica Vertical Educativa para Aplicaciones Domésticas</h3>
+                <p class="journal">DYNA | Vol. 100 N°6</p>
+            </div>
+        </div>
+        <div class="center-btn">
+            <a href="https://scholar.google.com/citations?user=KFKMXJWAAAAJ&hl=es" target="_blank" class="btn btn-primary"><i class="fab fa-google"></i> Google Scholar</a>
+        </div>
+    </section>
+
+    <section class="contact-section" id="contacto">
+        <div class="contact-container">
+            <div class="contact-info-block">
+                <h3>Información Académica</h3>
+                <p><i class="fas fa-envelope"></i> <strong>Correo:</strong> arnoldo_fr@yahoo.fr</p>
+                <p><i class="fas fa-id-card"></i> <strong>CVU Conahcyt:</strong> 35342</p>
+                <p><i class="fas fa-map-marker-alt"></i> TecNM - Instituto Tecnológico de Nuevo León</p>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2026 Dr. Arnoldo Apolonio Fernández Ramírez.</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navToggle = document.getElementById('navToggle');
+            const navMenu = document.getElementById('navMenu');
+
+            navToggle.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                const icon = navToggle.querySelector('i');
+                if (navMenu.classList.contains('active')) {
+                    icon.classList.replace('fa-bars', 'fa-xmark');
+                } else {
+                    icon.classList.replace('fa-xmark', 'fa-bars');
+                }
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', () => {
+                    navMenu.classList.remove('active');
+                    navToggle.querySelector('i').classList.replace('fa-xmark', 'fa-bars');
+                });
+            });
+        });
+    </script>
+</body>
