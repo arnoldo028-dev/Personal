@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Dr. Arnoldo Apolonio Fernandez Ramirez | Perfil Académico</title>
+    <!-- Google Fonts & Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f4f7fc;
+            color: #1e2a3e;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem;
+        }
+
+        /* header hero */
+        .hero {
+            background: linear-gradient(135deg, #0b2b3b 0%, #1a4b6e 100%);
+            color: white;
+            border-radius: 2rem;
+            padding: 2rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 12px 25px -10px rgba(0,0,0,0.2);
+        }
+
+        .hero h1 {
+            font-size: 2.1rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.3px;
+        }
+
+        .hero .title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            opacity: 0.9;
+            border-left: 3px solid #5bc0be;
+            padding-left: 1rem;
+            margin: 0.8rem 0;
+        }
+
+        .badge-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+            margin: 1rem 0 0.5rem;
+        }
+
+        .badge {
+            background: rgba(255,255,255,0.2);
+            backdrop-filter: blur(4px);
+            padding: 0.3rem 0.9rem;
+            border-radius: 40px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 1.4rem;
+            font-size: 0.9rem;
+        }
+
+        .contact-info i {
+            width: 1.6rem;
+            color: #7fc9c7;
+        }
+
+        a {
+            color: white;
+            text-decoration: none;
+            transition: 0.2s;
+        }
+        a:hover {
+            text-decoration: underline;
+            color: #f0f0f0;
+        }
+
+        /* cards general */
+        .section-card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem 1.8rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+            border: 1px solid #e2edf2;
+            transition: all 0.2s;
+        }
+
+        .section-title {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            border-left: 5px solid #2c7a7b;
+            padding-left: 1rem;
+            color: #0f3b4c;
+        }
+
+        .section-title i {
+            color: #2c7a7b;
+            font-size: 1.4rem;
+        }
+
+        .grid-2col {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0.7rem;
+            flex-wrap: wrap;
+        }
+
+        .info-list strong {
+            min-width: 130px;
+            font-weight: 600;
+            color: #1f5e6e;
+        }
+
+        .skill-tag {
+            background: #e6f3f5;
+            padding: 0.3rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+            margin: 0.3rem 0.4rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #135b6b;
+        }
+
+        .publication-item, .book-item, .thesis-item, .project-item {
+            border-bottom: 1px solid #e9ecef;
+            padding: 1rem 0;
+        }
+        .publication-item:last-child, .book-item:last-child {
+            border-bottom: none;
+        }
+
+        .pub-title {
+            font-weight: 700;
+            color: #1a4b6e;
+            font-size: 1rem;
+        }
+
+        .pub-details {
+            font-size: 0.85rem;
+            color: #4b6b7c;
+            margin-top: 4px;
+        }
+
+        .btn-outline-sm {
+            display: inline-block;
+            font-size: 0.7rem;
+            background: #eef2f5;
+            padding: 0.2rem 0.7rem;
+            border-radius: 20px;
+            color: #1f5e6e;
+            margin-left: 0.6rem;
+            font-weight: 500;
+        }
+
+        hr {
+            margin: 1rem 0;
+            border-color: #e2edf2;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 0 1rem;
+            font-size: 0.8rem;
+            color: #5a7a8a;
+        }
+
+        @media (max-width: 680px) {
+            .container {
+                padding: 1rem;
+            }
+            .hero {
+                padding: 1.5rem;
+            }
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .section-title {
+                font-size: 1.3rem;
+            }
+            .section-card {
+                padding: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- Encabezado principal -->
+    <div class="hero">
+        <h1>Dr. Arnoldo Apolonio Fernandez Ramirez</h1>
+        <div class="title">Profesor Titular “C” (E.S) Tiempo Completo · SNI / PROMEP Perfil Deseable</div>
+        <div class="badge-container">
+            <span class="badge"><i class="fas fa-robot"></i> Robótica</span>
+            <span class="badge"><i class="fas fa-microchip"></i> Sistemas Ciberfísicos</span>
+            <span class="badge"><i class="fas fa-cogs"></i> Manufactura Aditiva</span>
+            <span class="badge"><i class="fas fa-wind"></i> Energías Renovables</span>
+            <span class="badge"><i class="fas fa-vr-cardboard"></i> Realidad Virtual</span>
+        </div>
+        <div class="contact-info">
+            <span><i class="fas fa-envelope"></i> arnoldo_fr@yahoo.fr</span>
+            <span><i class="fab fa-google"></i> <a href="https://scholar.google.com/citations?user=kfkmxjwAAAAJ&hl=es" target="_blank">Google Scholar</a></span>
+            <span><i class="fas fa-phone-alt"></i> +52 8182805375</span>
+            <span><i class="fas fa-map-marker-alt"></i> Guadalupe, Nuevo León, México</span>
+        </div>
+        <div class="contact-info" style="margin-top: 6px;">
+            <span><i class="fas fa-id-card"></i> ORCID: 0000-0001-7906-9307</span>
+            <span><i class="fas fa-calendar-alt"></i> Nac. 25-sep-1973</span>
+        </div>
+    </div>
+
+    <!-- Resumen / Perfil -->
+    <div class="section-card">
+        <div class="section-title"><i class="fas fa-user-graduate"></i> Perfil Académico</div>
+        <p style="margin-bottom: 0.8rem;">Doctor en Mecánica de Sólidos por la Université de Poitiers, Francia. Maestría en Ingeniería Eléctrica (Control) por el Instituto Tecnológico de la Laguna e Ingeniero Industrial Mecánico (Térmica y Diseño). Profesor Titular “C” de tiempo completo desde 2008 en el Tecnológico Nacional de México. Líder del Cuerpo Académico <strong>ITNLE-CA-7 “Sistemas Robóticos, Mecatrónicos, Herramientas Educativas y Aplicaciones en Energía Renovable”</strong> (en Consolidación 2023-2026).</p>
+        <p>Perfil Deseable PROMEP desde 2011 hasta 2028. Estímulo al Desempeño Docente (EDD) 2016-actualidad. Becario CONACYT (hoy Secíhti) para Maestría y Doctorado. Responsable o colaborador en más de 7 proyectos con financiamiento SECIHTI, TNM, PROMEP. Ha dirigido más de 25 tesis de licenciatura, maestría y especialidad.</p>
+    </div>
+
+    <!-- Información general + habilidades en dos columnas -->
+    <div class="grid-2col">
+        <div class="section-card">
+            <div class="section-title"><i class="fas fa-id-card"></i> Datos generales</div>
+            <ul class="info-list">
+                <li><strong>CURP:</strong> FERA730925HCLRMR05</li>
+                <li><strong>RFC:</strong> FERA730925PQ4</li>
+                <li><strong>Nacionalidad:</strong> Mexicana</li>
+                <li><strong>Estado civil:</strong> Casado(a)</li>
+                <li><strong>Idiomas:</strong> Francés (nivel universitario) · Español (materna)</li>
+                <li><strong>Área CONAHCYT:</strong> Interdisciplinaria - Ingenierías y Desarrollo Tecnológico (Ingeniería Mecánica)</li>
+            </ul>
+        </div>
+        <div class="section-card">
+            <div class="section-title"><i class="fas fa-chalkboard-user"></i> Habilidades clave</div>
+            <div>
+                <span class="skill-tag">Aprendizaje autodidacta</span>
+                <span class="skill-tag">Inteligencia emocional</span>
+                <span class="skill-tag">Gestión de proyectos</span>
+                <span class="skill-tag">Programación</span>
+                <span class="skill-tag">Tecnologías de información</span>
+                <span class="skill-tag">Colaboración interdisciplinaria</span>
+                <span class="skill-tag">Matemática aplicada</span>
+                <span class="skill-tag">Ética profesional</span>
+                <span class="skill-tag">Escucha efectiva</span>
+                <span class="skill-tag">Recopilación de información</span>
+            </div>
+            <hr>
+            <div><i class="fas fa-certificate" style="color:#2c7a7b;"></i> <strong>Cursos recientes:</strong> IBM SkillsBuild Faculty (2025) · Code Generation using IBM Granite (2025)</div>
+        </div>
+    </div>
+
+    <!-- Trayectoria académica y empleo actual -->
+    <div class="grid-2col">
+        <div class="section-card">
+            <div class="section-title"><i class="fas fa-graduation-cap"></i> Formación</div>
+            <ul class="info-list">
+                <li><strong>Doctorado:</strong> Mecánica de Sólidos - Université de Poitiers, Francia</li>
+                <li><strong>DEA en Mecánica:</strong> Université de Poitiers</li>
+                <li><strong>Maestría en Ciencias:</strong> Ingeniería Eléctrica (Control) - TecNM</li>
+                <li><strong>Ingeniería Industrial Mecánica:</strong> Especialidad Térmica y Diseño - TecNM</li>
+            </ul>
+        </div>
+        <div class="section-card">
+            <div class="section-title"><i class="fas fa-briefcase"></i> Empleo actual</div>
+            <p><strong>Profesor Titular “C” (E.S) Tiempo Completo</strong><br> Tecnológico Nacional de México (2008 - presente)</p>
+            <p>Logros: Perfil Deseable PROMEP desde 2011, responsable del CA en consolidación, estímulos docentes EDD, dos periodos sabáticos. Proyectos de investigación financiados y dirección de tesis de posgrado y licenciatura.</p>
+        </div>
+    </div>
+
+    <!-- Producción científica destacada (artículos recientes) -->
+    <div class="section-card">
+        <div class="section-title"><i class="fas fa-file-alt"></i> Producción Científica destacada</div>
+        <div class="publication-item">
+            <div class="pub-title">An Interdisciplinary Optimization Framework for Intelligent Robotic Workstation Base Placement</div>
+            <div class="pub-details">Applied Sciences (ISSN 2076-3417) · 2026 · Autor principal · JCR IF:2.5</div>
+        </div>
+        <div class="publication-item">
+            <div class="pub-title">Diseño e implementación de un modelo didáctico para la capacitación en redes industriales</div>
+            <div class="pub-details">DYNA · 2026 · Co-autor · Q4(JIF 1.0)</div>
+        </div>
+        <div class="publication-item">
+            <div class="pub-title">Mathematical Methods for Inventory Management in Dynamic Supply Chains</div>
+            <div class="pub-details">Systems (MDPI) · 2025 · Co-autor · Factor de impacto 3.1 · Citas: 4</div>
+        </div>
+        <div class="publication-item">
+            <div class="pub-title">Robust Predefined Time Stability of Nth-Order Systems Subject to Deterministic Matched Disturbances</div>
+            <div class="pub-details">Actuators · 2024 · Co-autor · IF 2.3</div>
+        </div>
+        <div class="publication-item">
+            <div class="pub-title">Regrasping Objects during Manipulation Tasks by Combining Genetic Algorithms and Finger Gaiting</div>
+            <div class="pub-details">Meccanica · 2012 · Autor principal · IF 2.1 · 11 citas</div>
+        </div>
+        <div><a href="#" style="color:#1f5e6e; font-size:0.85rem;">+ 25 artículos indizados y memorias en extenso</a></div>
+    </div>
+
+    <!-- Libros y propiedad intelectual -->
+    <div class="grid-2col">
+        <div class="section-card">
+            <div class="section-title"><i class="fas fa-book"></i> Libros publicados</div>
+            <div class="book-item"><strong>Desarrollo de un módulo de comando de un manipulador para el software SMAR</strong> (Editorial Académica Española, 2022)</div>
+            <div class="book-item"><strong>Modelado, análisis del desempeño y simulación de robots: Robot manipulador industrial de 6 GDL</strong> (2021)</div>
+            <div class="book-item"><strong>Mini-robot para reproducir los movimientos de un dedo humano</strong> (2019)</div>
+            <div class="book-item"><strong>Sistema robótico de prensión. Diseño, simulación y construcción</strong> (2018)</div>
+            <div class="book-item"><strong>Robot didáctico de 6 GDL. Diseño, modelado y planificación</strong> (2016)</div>
+        </div>
+        <div class="section-card">
+            <div class="section-title"><i class="fas fa-microchip"></i> Propiedad intelectual</div>
+            <div class="pub-item" style="margin-bottom: 12px;">
+                <i class="fas fa-trademark"></i> <strong>Modeling, Design and Construction of a Six Degrees of Freedom Didactic Robot</strong> (Registro 03201903071418300001)
+            </div>
+            <div class="pub-item" style="margin-bottom: 12px;">
+                <i class="fas fa-trademark"></i> <strong>Gripping Robotic System Composed by a Pair of Robots Petit</strong> (2017)
+            </div>
+            <div class="pub-item">
+                <i class="fas fa-trademark"></i> <strong>Development of a Petit Robot Suitable for Building Robotic Systems</strong> (2015)
+            </div>
+            <div style="margin-top: 12px;"><span class="skill-tag">3 derechos de propiedad autoral</span></div>
+        </div>
+    </div>
+
+    <!-- Proyectos de investigación y desarrollo institucional -->
+    <div class="section-card">
+        <div class="section-title"><i class="fas fa-flask"></i> Proyectos de investigación (responsable o colaborador)</div>
+        <div class="grid-2col" style="margin-top: 0.5rem;">
+            <div>
+                <ul style="margin-left: 1.2rem;">
+                    <li>Diseño, simulación y construcción de un sistema ciber-físico de manipulación (2019)</li>
+                    <li>Implementación de aerogenerador eólico de bajas velocidades (2024-activo)</li>
+                    <li>Sistemas ciber-físicos auxiliares para movilidad de dedo humano y monitoreo cardiaco (2018)</li>
+                    <li>Mano robótica y manipulación diestra (sabático 2015-2016)</li>
+                </ul>
+            </div>
+            <div>
+                <ul style="margin-left: 1.2rem;">
+                    <li>Prototipo de generador eólico para flujos mínimos (2020)</li>
+                    <li>Desarrollo de plataforma didáctica simulación y comando para enseñanza de robótica (2008)</li>
+                    <li>Diseño y construcción de robots, dispositivos de telemanipulación (2017)</li>
+                </ul>
+            </div>
+        </div>
+        <div class="badge-container" style="margin-top: 0.5rem;">
+            <span class="skill-tag">Financiamiento SECIHTI</span>
+            <span class="skill-tag">Financiamiento PROMEP</span>
+            <span class="skill-tag">TNM</span>
+        </div>
+    </div>
+
+    <!-- Dirección de tesis y trabajos de titulación destacados -->
+    <div class="section-card">
+        <div class="section-title"><i class="fas fa-users"></i> Dirección de tesis (selección)</div>
+        <div class="grid-2col">
+            <div>
+                <ul style="margin-left: 1.2rem;">
+                    <li><strong>Exoesqueleto para miembro superior</strong> – Juan Pablo Lucas Ramos (Licenciatura, 2025)</li>
+                    <li><strong>Aplicación de IA en mecatrónica</strong> – Arturo Alejandro Martinez (Lic., 2025)</li>
+                    <li><strong>Robot cuadrúpedo</strong> – Aldo Daniel Mexquitic Martínez (Lic., 2024)</li>
+                    <li><strong>Optimización de generador eólico para vientos mínimos</strong> – Christofer Colin Garza (2023)</li>
+                </ul>
+            </div>
+            <div>
+                <ul style="margin-left: 1.2rem;">
+                    <li><strong>Control gestual de un sistema robótico (Maestría)</strong> – Daniel Alberto Echeverría Pérez (2020)</li>
+                    <li><strong>Diseño y construcción de sistema robótico manipulación (Maestría)</strong> – José Francisco Macías Solís (2020)</li>
+                    <li><strong>Sistema ciberfísico auxiliar movilidad dedo humano</strong> – Luis Eduardo Martínez I. (2020)</li>
+                    <li><strong>Driverless car a escala</strong> – Omar Castro Hernández / Pablo Tanori (2022)</li>
+                </ul>
+            </div>
+        </div>
+        <p class="pub-details" style="margin-top: 12px;">Más de 25 alumnos titulados en niveles Licenciatura, Especialidad y Maestría.</p>
+    </div>
+
+    <!-- Cursos impartidos / Docencia -->
+    <div class="grid-2col">
+        <div class="section-card">
+            <div class="section-title"><i class="fas fa-chalkboard"></i> Cursos recientes</div>
+            <div>Mecánica de Materiales, Mecánica de Fluidos, Termodinámica, Sistemas y Máquinas de Fluidos, Robótica Industrial, Análisis de Circuitos Eléctricos CD, Diseño de Elementos Mecánicos, Álgebra Lineal, Taller de Investigación II.</div>
+            <div class="pub-details" style="margin-top: 10px;">Periodos 2024-2026 · Licenciatura en Mecatrónica, Electromecánica, Industrial</div>
+        </div>
+        <div class="section-card">
+            <div class="section-title"><i class="fas fa-trophy"></i> Distinciones y premios</div>
+            <ul style="margin-left: 1.2rem;">
+                <li>Estímulo al Desempeño Docente (EDD) 2016-2025</li>
+                <li>Perfil Deseable PRODEP (2011-2028)</li>
+                <li>Responsable de Cuerpo Académico en Consolidación (2023-2026)</li>
+                <li>Beca SECIHTI (antes CONACYT) para maestría y doctorado (1995, 2000)</li>
+                <li>Apoyo a la Incorporación de NPTC (2008)</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Divulgación y eventos académicos -->
+    <div class="section-card">
+        <div class="section-title"><i class="fas fa-chalkboard-user"></i> Divulgación, conferencias y organización</div>
+        <p><i class="fas fa-robot"></i> <strong>Co-organizador y juez</strong> – XIV Torneo Regional de Robótica Zona Norte (CONACYT, 2026).</p>
+        <p><i class="fas fa-chalkboard"></i> Participación en congresos: 17ème Congrès Français de Mécanique, Congreso Nacional de Robótica, Congreso Internacional AcademiaJournals, entre otros.</p>
+        <p><i class="fas fa-laptop-code"></i> Presentaciones destacadas: “Contribuciones a la manipulación diestra con mano mecánica”, “Investigación en el área mecatrónica en ITNL”.</p>
+        <p><i class="fas fa-network-wired"></i> Miembro de la <strong>Red Nacional de Monitoreo y Recolección de Datos</strong> (2024-2027) y miembro activo IEEE.</p>
+    </div>
+
+    <!-- Patentes / resumen de registros -->
+    <div class="section-card">
+        <div class="section-title"><i class="fas fa-chart-simple"></i> Indicadores generales de producción</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 1.2rem; justify-content: space-between;">
+            <div><strong>Artículos:</strong> 30 (29 c/ documento) · <strong>Capítulos:</strong> 1 · <strong>Libros:</strong> 5 de divulgación</div>
+            <div><strong>Propiedad intelectual:</strong> 3 registros · <strong>Proyectos investigación:</strong> 8</div>
+            <div><strong>Tesis dirigidas:</strong> 28 registros · <strong>Cursos impartidos:</strong> 70+</div>
+        </div>
+        <hr>
+        <div class="pub-details" style="text-align: center;">CVU: 35342 · Citas totales acumuladas: más de 22 según fuentes (Regrasping 11 citas + otras)</div>
+    </div>
+
+    <footer>
+        <i class="fas fa-file-pdf"></i> Documento oficial de perfil único · Tecnológico Nacional de México · Datos actualizados 2026<br>
+        Información basada en el CVU y plataforma SEP-PRODEP · Última modificación: Mayo 2026
+    </footer>
+</div>
+</body>
+</html>
